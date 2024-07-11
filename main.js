@@ -69,8 +69,7 @@ async function servise() {
         });
         const customer = customersBank.find(customer => customer.account.accountNumber === accountNumberInput.accountNumber);
         if (customer) {
-            console.log(`welcome ${customer.firstName}
-                    ${customer.lastName}`);
+            console.log(`welcome ${customer.firstName}${customer.lastName}`);
             const ans = await inquirer.prompt([
                 {
                     name: "select",
@@ -80,7 +79,38 @@ async function servise() {
                 }
             ]);
             switch (ans.select) {
+                case "Deposit":
+                    const depositedAmount = await inquirer.prompt([
+                        {
+                            name: "amount",
+                            type: "number",
+                            message: "Enter the amount to deposite"
+                        }
+                    ]);
+                    customer.account.deposit(depositedAmount.amount);
+                    break;
+                case "Withdraw":
+                    const withdrawdAmount = await inquirer.prompt([
+                        {
+                            name: "amount",
+                            type: "number",
+                            message: "Enter the amount to withdraw: "
+                        }
+                    ]);
+                    customer.account.withdraw(withdrawdAmount.amount);
+                    break;
+                case "Check Balance":
+                    customer.account.checkBalance();
+                    break;
+                case "Exit":
+                    console.log("Exiting bank progrm... ");
+                    console.log("\n Thank You for using our bank services. Have a great day");
+                    return;
             }
+        }
+        else {
+            console.log("Invalid Account Number Please Try again");
         }
     } while (true);
 }
+servise();
