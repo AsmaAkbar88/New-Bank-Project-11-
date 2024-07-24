@@ -1,19 +1,32 @@
 {
+<<<<<<< HEAD
   "name": "asma12-bank-project",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
   "type": "module",
   "bin": "main.js",
+=======
+  "name": "day-1",
+  "version": "1.0.0",
+  "main": "main.js",
+  "type": "module",
+>>>>>>> 37a220c6f8b0c14e8a5444c96ef82c22f7560262
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+<<<<<<< HEAD
   "dependencies": {
     "chalk": "^5.3.0",
     "inquirer": "^9.3.2"
+=======
+  "description": "",
+  "dependencies": {
+    "inquirer": "^9.3.0"
+>>>>>>> 37a220c6f8b0c14e8a5444c96ef82c22f7560262
   },
   "devDependencies": {
     "@types/inquirer": "^9.0.7"

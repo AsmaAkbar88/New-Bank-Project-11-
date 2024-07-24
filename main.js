@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 #! /usr/bin/env node
 import inquirer from "inquirer";
 import chalk from "chalk";
+=======
+import inquirer from "inquirer";
+>>>>>>> 37a220c6f8b0c14e8a5444c96ef82c22f7560262
 // bank account class
 class BankAccount {
     accountNumber;
@@ -13,6 +17,7 @@ class BankAccount {
     withdraw(amount) {
         if (this.balance >= amount) {
             this.balance -= amount;
+<<<<<<< HEAD
             console.log(chalk.whiteBright(`\n withdrwa of $ ${amount} successful.
            
                 Remaining Balance: $${this.balance}`));
@@ -21,6 +26,13 @@ class BankAccount {
         else {
             chalk.redBright("Insufficient Balance.");
             console.log("_".repeat(60));
+=======
+            console.log(`withdrwa of $ ${amount} successful.
+            Remaining Balance: $${this.balance}`);
+        }
+        else {
+            "Insufficient Balance.";
+>>>>>>> 37a220c6f8b0c14e8a5444c96ef82c22f7560262
         }
     }
     // Credit MOny 
@@ -29,6 +41,7 @@ class BankAccount {
             amount -= 1; //$1 fee charged if more than $100 is deposited
         }
         this.balance += amount;
+<<<<<<< HEAD
         console.log(chalk.whiteBright(`Deposit of $${amount} Successful.Reminig Balance: $${this.balance}`));
         console.log("_".repeat(60));
     }
@@ -36,6 +49,13 @@ class BankAccount {
     checkBalance() {
         console.log(chalk.whiteBright(`\nCurrent balance $${this.balance}`));
         console.log("_".repeat(60));
+=======
+        console.log(`Deposit of $${amount} Successful.Reminig Balance: $${this.balance}`);
+    }
+    // Check Balance 
+    checkBalance() {
+        console.log(`Current balance $${this.balance}`);
+>>>>>>> 37a220c6f8b0c14e8a5444c96ef82c22f7560262
     }
 }
 // Customer Class
@@ -62,9 +82,15 @@ const account = [
     new BankAccount(1003, 2000)
 ];
 const customersBank = [
+<<<<<<< HEAD
     new Customers("\n Hamza", "Khan", "Male", "34", 3029292929, account[0]),
     new Customers("\n Saba", "Khan", "female", "12", 3029342929, account[1]),
     new Customers("\nfiza", "Khan", "female", "30", 3024492929, account[2])
+=======
+    new Customers("Hamza", "Khan", "Male", "34", 3029292929, account[0]),
+    new Customers("Saba", "Khan", "female", "12", 3029342929, account[1]),
+    new Customers("fiza", "Khan", "female", "30", 3024492929, account[2])
+>>>>>>> 37a220c6f8b0c14e8a5444c96ef82c22f7560262
 ];
 // function to interact with bank account
 async function servise() {
@@ -72,17 +98,29 @@ async function servise() {
         const accountNumberInput = await inquirer.prompt({
             name: "accountNumber",
             type: "number",
+<<<<<<< HEAD
             message: chalk.yellowBright("\n Enter your account number:  "),
         });
         const customer = customersBank.find(customer => customer.account.accountNumber === accountNumberInput.accountNumber);
         if (customer) {
             console.log(chalk.blueBright(`\n welcome 
                     ${customer.firstName}${customer.lastName}`));
+=======
+            message: "Enter your account number"
+        });
+        const customer = customersBank.find(customer => customer.account.accountNumber === accountNumberInput.accountNumber);
+        if (customer) {
+            console.log(`welcome ${customer.firstName}${customer.lastName}`);
+>>>>>>> 37a220c6f8b0c14e8a5444c96ef82c22f7560262
             const ans = await inquirer.prompt([
                 {
                     name: "select",
                     type: "list",
+<<<<<<< HEAD
                     message: "\n Select an operation ",
+=======
+                    message: "Select an operation ",
+>>>>>>> 37a220c6f8b0c14e8a5444c96ef82c22f7560262
                     choices: ["Deposit", "Withdraw", "Check Balance", "Exit"]
                 }
             ]);
@@ -92,7 +130,11 @@ async function servise() {
                         {
                             name: "amount",
                             type: "number",
+<<<<<<< HEAD
                             message: chalk.yellowBright("\n Enter the amount to deposite:  ")
+=======
+                            message: "Enter the amount to deposite"
+>>>>>>> 37a220c6f8b0c14e8a5444c96ef82c22f7560262
                         }
                     ]);
                     customer.account.deposit(depositedAmount.amount);
@@ -102,7 +144,11 @@ async function servise() {
                         {
                             name: "amount",
                             type: "number",
+<<<<<<< HEAD
                             message: chalk.whiteBright("\n Enter the amount to withdraw: ")
+=======
+                            message: "Enter the amount to withdraw: "
+>>>>>>> 37a220c6f8b0c14e8a5444c96ef82c22f7560262
                         }
                     ]);
                     customer.account.withdraw(withdrawdAmount.amount);
@@ -111,15 +157,24 @@ async function servise() {
                     customer.account.checkBalance();
                     break;
                 case "Exit":
+<<<<<<< HEAD
                     console.log(chalk.red("\n Exiting bank progrm... "));
                     console.log("\n Thank You for using our bank services. Have a great day");
                     console.log("_".repeat(60));
+=======
+                    console.log("Exiting bank progrm... ");
+                    console.log("\n Thank You for using our bank services. Have a great day");
+>>>>>>> 37a220c6f8b0c14e8a5444c96ef82c22f7560262
                     return;
             }
         }
         else {
+<<<<<<< HEAD
             console.log(chalk.redBright("\nInvalid Account Number Please Try again"));
             console.log("_".repeat(60));
+=======
+            console.log("Invalid Account Number Please Try again");
+>>>>>>> 37a220c6f8b0c14e8a5444c96ef82c22f7560262
         }
     } while (true);
 }
